@@ -1,4 +1,5 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure.Identity;
+using Azure.Storage.Blobs;
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -19,6 +20,17 @@ class Program
 
         try
         {
+            //1.set your Uri serviceUri = new Uri($"https://{storageAccountName}.blob.core.windows.net"); using your connectionstring from azure
+
+            //2.when creating the blobServiceClient using the below aproach do not worry about new DefaultAzureCredential()
+            //BlobServiceClient blobServiceClient = new BlobServiceClient(accountUri, new DefaultAzureCredential());
+            /*
+             DefaultAzureCredential.
+        // This will authenticate automatically using your developer tools locally,
+        // or a managed identity when deployed to Azure.
+        
+            */
+
             // Create a BlobServiceClient object
             BlobServiceClient blobServiceClient = new BlobServiceClient(connectionString);
 
